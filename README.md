@@ -13,7 +13,7 @@
 
 
 ## 🛠 Kullanılan Teknolojiler
-# .Net Core 9.0
-# IdentityDbContext
-# MVC mimarisi
-# HttpContext ile oturum yönetimi
+- .Net Core 9.0
+- IdentityDbContext
+- MVC mimarisi
+-  HttpContext ile oturum yönetimi
