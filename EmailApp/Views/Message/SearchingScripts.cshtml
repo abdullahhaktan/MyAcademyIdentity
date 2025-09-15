@@ -1,0 +1,26 @@
+﻿<script>
+        function searchMessages() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toUpperCase();
+        var table = document.getElementById("messageTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var senderCell = rows[i].querySelector(".mailbox-name");
+            var subjectCell = rows[i].querySelector(".mailbox-subject");
+            var match = false;
+
+            if (senderCell && subjectCell) {
+                var senderText = senderCell.textContent || senderCell.innerText;
+                var subjectText = subjectCell.textContent || subjectCell.innerText;
+
+                if (senderText.toUpperCase().includes(filter) || subjectText.toUpperCase().includes(filter)) {
+                    match = true;
+                }
+            }
+
+            rows[i].style.display = match ? "" : "none";
+        }
+    }
+
+</script>

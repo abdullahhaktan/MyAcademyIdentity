@@ -1,0 +1,16 @@
+﻿@model List<Message>
+
+@foreach (var item in Model)
+{
+    <a href="/Message/MessageDetail/@item.MessageId" class="dropdown-item">
+        <div class="media">
+            <img src="@item.Sender?.ImageUrl" alt="User Avatar" class="img-size-50 mr-3 img-circle"> <div class="media-body">
+                <h3 class="dropdown-item-title"> @item.Sender?.FirstName @item.Sender?.LastName </h3>
+                <p class="text-sm">Konu: @item.Subject</p> <p class="text-sm">İçerik: @(item.Body.Length > 50 ? item.Body.Substring(0, 50) : item.Body)</p>
+                <p class="text-sm text-muted"> <i class="far fa-clock mr-1"></i>@item.SendDate.ToShortDateString() </p>
+            </div>
+        </div>
+    </a>
+    <div class="dropdown-divider"></div>
+}
+<a href="/Message/Index" class="dropdown-item dropdown-footer">Tüm Mesajları Gör</a>

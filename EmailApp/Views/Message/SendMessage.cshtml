@@ -1,0 +1,63 @@
+﻿@model SendMessageViewModel
+
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/MainLayout/Index.cshtml";
+}
+
+<div class="col-md-9">
+    <form id="composeForm" method="post">
+
+        <input type="hidden" id="isDraft" name="isDraft" value="false" />
+        <input type="hidden" id="isNormal" name="isNormal" value="false" />
+
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Mail Gönder</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <input class="form-control" asp-for="ReceiverEmail" placeholder="Alıcı Mail" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="Subject" placeholder="Konu" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" asp-for="Body" style="height: 300px" id="compose-textarea" required>
+                </textarea>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="MessageCategory" placeholder="Mesaj Kategorisi" required>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <div class="float-right">
+                    <button type="button" class="btn btn-default" onclick="saveAsDraft()">
+                        <i class="fas fa-pencil-alt"></i> Taslak
+                    </button>
+
+                    <button type="submit" class="btn btn-primary" onclick="saveAsNormal()">
+                        <i class="far fa-envelope"></i> Gönder
+                    </button>
+                </div>
+                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal </button>
+            </div>
+            <!-- /.card-footer -->
+        </div>
+    </form>
+    <!-- /.card -->
+</div>
+
+<script>
+    function saveAsDraft() {
+        document.getElementById("isDraft").value = "true";
+        document.getElementById("composeForm").submit();
+    }
+
+        function saveAsNormal() {
+        document.getElementById("isNormal").value = "true";
+        document.getElementById("composeForm").submit();
+    }
+</script>

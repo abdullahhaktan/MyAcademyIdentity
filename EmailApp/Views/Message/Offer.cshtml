@@ -1,0 +1,90 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/MainLayout/Index.cshtml";
+    int count = 0;
+}
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<div class="col-md-9">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title">Kampanyalar Gelen Kutusu</h3>
+        </div
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped" id="messageTable">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var deger = "";
+                            <tr>
+                                @{
+                                    if(item.MessageCategory=="Önemli")
+                                    {
+                                        deger = "red";
+                                    }
+                                    else
+                                    {
+                                        deger = "wheate";
+                                    }
+                                }
+                                <td class="mailbox-name">
+                                    <a href="/Message/ChangeToImportant/@item.MessageId" class="mailbox-star">
+                                        <i class="fas fa-star" style="color: @deger;"></i>
+                                    </a>
+                                    @item.Sender.FirstName @item.Sender.LastName
+                                </td>
+                                <td class="mailbox-name">@item.Sender.FirstName @item.Sender.LastName  </td>
+                                <td class="mailbox-subject">
+                                    @item.Subject
+                                    <a href="/Message/MessageDetail/@item.MessageId"><b></b> - @item.Body</a>
+                                </td>
+                                <td>
+                                    <a href="/Message/SendToTrash/@item.MessageId" class="btn btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                                <td class="mailbox-attachment"></td>
+                                <td class="mailbox-name"> <button type="button" class="btn btn-@(item.isRead ? "success" : "danger")">@(item.isRead ? "Okundu" : "Okunmadı")</button> </td>
+                                <td class="mailbox-date">@((item.SendDate).ToShortDateString())</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!-- /.table -->
+            </div>
+            <!-- /.mail-box-messages -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer p-0">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                    <i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                    1-50/200
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+            </div>
+        </div>
+    </div>
+    <!-- /.card -->
+</div>

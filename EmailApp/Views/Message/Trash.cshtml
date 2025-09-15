@@ -1,0 +1,111 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "Trash";
+    Layout = "~/Views/MainLayout/Index.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<div class="col-md-9">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title">Çöp Kutusu</h3>
+        </div>
+        @{
+            var deger = "MessageDetail";
+            @if (TempData["isDraft"] == "true")
+            {
+                {
+                    deger = "SendMessage";
+                }
+            }
+        }
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped" id="messageTable">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var deger1 = "";
+                            <tr>
+                                @{
+                                    if (item.MessageCategory == "Önemli")
+                                    {
+                                        deger1 = "red";
+                                    }
+                                    else
+                                    {
+                                        deger = "wheate";
+                                    }
+                                }
+                                <td class="mailbox-name">
+                                    <a href="/Message/ChangeToImportant/@item.MessageId" class="mailbox-star">
+                                        <i class="fas fa-star" style="color: @deger1;"></i>
+                                    </a>
+                                    @item.Sender.FirstName @item.Sender.LastName
+                                </td>
+                                <td class="mailbox-attachment"></td>
+                                <td class="mailbox-name"> <button class="btn btn-danger" onclick="clearTrash(@item.MessageId)">  <i class="bi bi-trash"></i> </button> Kalıcı Sil </td>
+                                <td class="mailbox-date">@((item.SendDate).ToShortDateString())</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!-- /.table -->
+            </div>
+            <!-- /.mail-box-messages -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer p-0">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                    <i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                <div class="float-right">
+                    1-50/200
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+            </div>
+        </div>
+    </div>
+    <!-- /.card -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function clearTrash(id)
+    {
+                            Swal.fire({
+          title: "Bu mesajı Kalıcı olarak silmek istediğinize emin misiniz?",
+          text: "Bunu geri alamazsınız!",
+          icon: "uyarı",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Evet Sil",
+          cancelButtonText: "İptal!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = "/Message/MessageDelete/"+id;
+          }
+        });
+    }
+</script>
