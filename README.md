@@ -1,70 +1,139 @@
 # MyAcademyIdentity
 
-#[TR]
-# ASP.NET Core Identity ile Güvenli Kimlik Yönetimi
+[TR]
 
-# Bu proje, ASP.NET Core Identity çatısını kullanarak gelişmiş bir kullanıcı kimlik doğrulama ve yetkilendirme mekanizmasını uygulamaktadır. Akademi (MyAcademy) eğitimleri kapsamında, bir web uygulamasında güvenli kullanıcı yönetiminin A'dan Z'ye nasıl kurulacağını göstermektedir.
+**Kimlik Yönetim Sistemi (ASP.NET Core Identity)**
+
+---
+
+## 💻 Proje Hakkında
+
+Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş, merkezi bir kullanıcı ve yetkilendirme yönetim sistemidir. Güvenli kullanıcı kimlik doğrulama, rol yönetimi ve yetkilendirme işlevlerini sağlam, genişletilebilir bir yapıda sunar. Eğitim veya küçük/orta ölçekli uygulamaların güvenlik temelini oluşturmak için tasarlanmıştır.
+
+---
 
 ## ✨ Temel Özellikler
 
-# * **Gelişmiş Kimlik Doğrulama:** ASP.NET Core Identity'nin standartlarını (parola karma, güvenlik damgası vb.) kullanır.
-# * **Rol Yönetimi:** Kullanıcılar için farklı yetki seviyeleri (Örn: Admin, Member) tanımlama ve atama.
-# * **Kullanıcı Kaydı ve Girişi:** Güvenli kayıt ve oturum açma işlemleri.
-# * **Şifre Sıfırlama:** E-posta yoluyla şifre sıfırlama işlevi.
-# * **E-posta Onayı:** Yeni kullanıcılar için hesap doğrulama zorunluluğu.
-# * **Özelleştirilmiş Kullanıcı Modeli:** Ek profil bilgileri tutmak için IdentityUser sınıfının özelleştirilmesi.
+### Teknik Özellikler
 
-## 🚀 Nasıl Kurulur ve Çalıştırılır?
+* **ASP.NET Core Identity**: Kullanıcı, rol ve talep (claim) yönetimi.
+* **Katmanlı mimari** (Tercihe bağlı olarak: DataAccess / Business / WebUI)
+* **Entity Framework Core (EF Core)**: Veritabanı işlemleri ve Migrations yönetimi.
+* **Güvenli Parola Saklama**: Identity'nin yerleşik hash algoritmaları kullanılır.
+* **Veritabanı Esnekliği**: EF Core ile MSSQL, SQLite veya diğer veritabanlarına kolayca adapte edilebilir.
 
-# Bu projenin çalıştırılması için **.NET SDK** ve bir **SQL Server** veritabanı gereklidir.
+### Kullanıcı / Panel Özellikleri
 
-# 1. Projeyi Klonlama:
-git clone https://github.com/abdullahhaktan/MyAcademyIdentity
-cd MyAcademyIdentity
+* **Kullanıcı Kaydı ve Girişi** (Register / Login)
+* **Parola Sıfırlama** ve **E-posta Doğrulama** mekanizmaları
+* **Rol Tabanlı Yetkilendirme** (Role-Based Authorization)
+* Yönetici (Admin) Paneli: **Kullanıcı ve rol yönetimi** (Eğer arayüz entegre edilmişse)
 
-# 2. Veritabanını Hazırlama:
-# * Bağlantı Dizesini (appsettings.json dosyasında) kendi yerel SQL Sunucusu ayarlarınıza göre güncelleyin.
-# * Veritabanı şemasını oluşturmak ve veritabanını otomatik olarak oluşturmak için Entity Framework Core migrasyonlarını uygulayın:
-dotnet ef database update
+---
 
-# * Not: Bu komut, belirtilen sunucuda veritabanı yoksa otomatik olarak oluşturacaktır. El ile veritabanı oluşturmanıza gerek yoktur.
+### 🚀 Nasıl Çalıştırılır?
 
-# 3. Çözümü Başlatma:
-# * Visual Studio veya VS Code ile .sln (Solution) dosyasını açın.
-# * Projeyi derleyin ve F5 tuşu (Visual Studio) veya dotnet run komutu ile uygulamayı başlatın.
+Bu projeyi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları izleyin:
 
-#[EN]
-# Secure Identity Management with ASP.NET Core Identity
+1.  **Gereksinimler:**
+    * [.NET SDK 6.0 veya üzeri](https://dotnet.microsoft.com/download)
+    * [SQL Server](https://www.microsoft.com/en-us/sql-server) (veya tercih edilen veritabanı)
+    * [Visual Studio 2022](https://visualstudio.microsoft.com/) (Önerilen)
 
-# This project implements an advanced user authentication and authorization mechanism using the ASP.NET Core Identity framework. Developed within the scope of MyAcademy training, it demonstrates how to establish secure user management from start to finish in a web application.
+2.  **Projeyi Klonlama:**
+    ```bash
+    git clone [https://github.com/abdullahhaktan/MyAcademyIdentity.git](https://github.com/abdullahhaktan/MyAcademyIdentity.git)
+    cd MyAcademyIdentity
+    ```
+
+3.  **Bağımlılıkları Yükleme:**
+    ```bash
+    dotnet restore
+    ```
+
+4.  **Veritabanı Ayarları:**
+    * `appsettings.json` dosyasını açın ve `ConnectionStrings` bölümündeki veritabanı bağlantı dizesini (`DefaultConnection`) kendi yerel veritabanı ayarlarınıza göre güncelleyin.
+
+5.  **Veritabanını Oluşturma (Migrations):**
+    * Projenin kök dizininde komut satırını kullanın:
+        ```bash
+        dotnet ef database update
+        ```
+
+6.  **Projeyi Çalıştırma:**
+    * Projeyi Visual Studio'da açın veya komut satırında çalıştırın:
+        ```bash
+        dotnet run
+        ```
+    * Uygulama genellikle `https://localhost:[PORT]` (veya benzeri bir adreste) çalışmaya başlayacaktır.
+
+---
+---
+
+[EN]
+
+# MyAcademyIdentity
+
+## 💻 About the Project
+
+This project is a centralized user and authorization management system developed using the **ASP.NET Core Identity** framework. It provides secure user authentication, role management, and authorization functionalities within a robust and extensible structure, designed to form the security foundation for educational or small/medium-scale applications.
+
+---
 
 ## ✨ Core Features
 
-# * **Advanced Authentication:** Utilizes ASP.NET Core Identity standards (password hashing, security stamp, etc.).
-# * **Role Management:** Defining and assigning different authorization levels for users (E.g.: Admin, Member).
-# * **User Registration and Login:** Secure registration and sign-in processes.
-# * **Password Reset:** Password reset functionality via email.
-# * **Email Confirmation:** Enforcing account verification for new users.
-# * **Custom User Model:** Customizing the IdentityUser class to store additional profile information.
+### Technical Features
 
-## 🚀 How to Set Up and Run?
+* **ASP.NET Core Identity**: Core management of users, roles, and claims.
+* **Layered architecture** (Optionally: DataAccess / Business / WebUI)
+* **Entity Framework Core (EF Core)**: Database operations and Migrations management.
+* **Secure Password Storage**: Utilizes Identity's built-in hashing algorithms.
+* **Database Flexibility**: Easily adaptable to MSSQL, SQLite, or other databases via EF Core.
 
-# This project requires the **.NET SDK** and an **SQL Server** database to run.
+### User / UI Features
 
-# 1. Clone the Repository:
-git clone https://github.com/abdullahhaktan/MyAcademyIdentity
-cd MyAcademyIdentity
+* **User Registration and Login**
+* **Password Reset** and **Email Confirmation** mechanisms
+* **Role-Based Authorization**
+* Admin Panel: **User and role management** (If UI integrated)
 
-# 2. Prepare the Database:
-# * Update the Connection String (in the appsettings.json file) to match your local SQL Server settings.
-# * Apply Entity Framework Core migrations to create the database schema and automatically create the database:
-dotnet ef database update
+---
 
-# * Note: This command will automatically create the database on the specified server if it doesn't already exist. You do not need to manually create the database beforehand.
+### 🚀 How to Run
 
-# 3. Start the Solution:
-# * Open the .sln (Solution) file with Visual Studio or VS Code.
-# * Build the project and start the application using the F5 key (Visual Studio) or the dotnet run command.
+Follow these steps to set up and run the project locally:
+
+1.  **Prerequisites:**
+    * [.NET SDK 6.0 or higher](https://dotnet.microsoft.com/download)
+    * [SQL Server](https://www.microsoft.com/en-us/sql-server) (or preferred database)
+    * [Visual Studio 2022](https://visualstudio.microsoft.com/) (Recommended)
+
+2.  **Cloning the Project:**
+    ```bash
+    git clone [https://github.com/abdullahhaktan/MyAcademyIdentity.git](https://github.com/abdullahhaktan/MyAcademyIdentity.git)
+    cd MyAcademyIdentity
+    ```
+    
+3.  **Installing Dependencies:**
+    ```bash
+    dotnet restore
+    ```
+
+4.  **Database Configuration:**
+    * Open the `appsettings.json` file and update the database connection string (`DefaultConnection`) under the `ConnectionStrings` section to match your local database settings.
+
+5.  **Creating the Database (Migrations):**
+    * Use the command line in the project's root directory:
+        ```bash
+        dotnet ef database update
+        ```
+
+6.  **Running the Project:**
+    * Open the project in Visual Studio or run it via the command line:
+        ```bash
+        dotnet run
+        ```
+    * The application will typically start running at an address like `https://localhost:[PORT]`.
 
 ---
 ---
