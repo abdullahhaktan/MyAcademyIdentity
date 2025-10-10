@@ -1,57 +1,70 @@
-# IdentityProject
+# MyAcademyIdentity
 
-[TR]
+#[TR]
+# ASP.NET Core Identity ile Güvenli Kimlik Yönetimi
 
-**IdentityDbContext Kullanarak Geliştirilmiş Mesajlaşma Sistemi**
-
-[![.NET Core](https://img.shields.io/badge/.NET_Core-9.0-purple.svg)](https://dotnet.microsoft.com/)
-[![C#](https://img.shields.io/badge/Language-C%23-blue.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![GitHub repo size](https://img.shields.io/github/repo-size/abdullahhaktan/IdentityProject)](https://github.com/abdullahhaktan/IdentityProject)
-
----
-
-## 💻 Proje Hakkında
-
----
+# Bu proje, ASP.NET Core Identity çatısını kullanarak gelişmiş bir kullanıcı kimlik doğrulama ve yetkilendirme mekanizmasını uygulamaktadır. Akademi (MyAcademy) eğitimleri kapsamında, bir web uygulamasında güvenli kullanıcı yönetiminin A'dan Z'ye nasıl kurulacağını göstermektedir.
 
 ## ✨ Temel Özellikler
 
-### Kullanılan Teknolojiler ve Mimari
+# * **Gelişmiş Kimlik Doğrulama:** ASP.NET Core Identity'nin standartlarını (parola karma, güvenlik damgası vb.) kullanır.
+# * **Rol Yönetimi:** Kullanıcılar için farklı yetki seviyeleri (Örn: Admin, Member) tanımlama ve atama.
+# * **Kullanıcı Kaydı ve Girişi:** Güvenli kayıt ve oturum açma işlemleri.
+# * **Şifre Sıfırlama:** E-posta yoluyla şifre sıfırlama işlevi.
+# * **E-posta Onayı:** Yeni kullanıcılar için hesap doğrulama zorunluluğu.
+# * **Özelleştirilmiş Kullanıcı Modeli:** Ek profil bilgileri tutmak için IdentityUser sınıfının özelleştirilmesi.
 
-* **.Net Core 9.0** ve **C#** dili ile geliştirilmiştir.
-* **IdentityDbContext** kullanılarak tüm kullanıcı (User) ve kimlik işlemlerinin yönetimi.
-* **MVC mimarisi** ve **Code-first** yaklaşımı ile çoka çok veritabanı ilişkileri.
-* **Authentication** (Kimlik Doğrulama) işlemi.
-* **HttpContext** ile oturum yönetimi.
+## 🚀 Nasıl Kurulur ve Çalıştırılır?
 
-### İşlevsel Özellikler
+# Bu projenin çalıştırılması için **.NET SDK** ve bir **SQL Server** veritabanı gereklidir.
 
-* **Mesajlaşma Sistemi:** Gelen, Giden, Taslak ve Çöp Kutusu olmak üzere dört farklı posta kutusu yapısı.
-* **Tema Desteği:** Projede **AdminLTE 3.0.4** teması ile görsel destek sağlanmıştır.
+# 1. Projeyi Klonlama:
+git clone https://github.com/abdullahhaktan/MyAcademyIdentity
+cd MyAcademyIdentity
 
----
----
+# 2. Veritabanını Hazırlama:
+# * Bağlantı Dizesini (appsettings.json dosyasında) kendi yerel SQL Sunucusu ayarlarınıza göre güncelleyin.
+# * Veritabanı şemasını oluşturmak ve veritabanını otomatik olarak oluşturmak için Entity Framework Core migrasyonlarını uygulayın:
+dotnet ef database update
 
-[EN]
+# * Not: Bu komut, belirtilen sunucuda veritabanı yoksa otomatik olarak oluşturacaktır. El ile veritabanı oluşturmanıza gerek yoktur.
 
-## 💻 About the Project
+# 3. Çözümü Başlatma:
+# * Visual Studio veya VS Code ile .sln (Solution) dosyasını açın.
+# * Projeyi derleyin ve F5 tuşu (Visual Studio) veya dotnet run komutu ile uygulamayı başlatın.
 
----
+#[EN]
+# Secure Identity Management with ASP.NET Core Identity
+
+# This project implements an advanced user authentication and authorization mechanism using the ASP.NET Core Identity framework. Developed within the scope of MyAcademy training, it demonstrates how to establish secure user management from start to finish in a web application.
 
 ## ✨ Core Features
 
-### Technologies Used and Architecture
+# * **Advanced Authentication:** Utilizes ASP.NET Core Identity standards (password hashing, security stamp, etc.).
+# * **Role Management:** Defining and assigning different authorization levels for users (E.g.: Admin, Member).
+# * **User Registration and Login:** Secure registration and sign-in processes.
+# * **Password Reset:** Password reset functionality via email.
+# * **Email Confirmation:** Enforcing account verification for new users.
+# * **Custom User Model:** Customizing the IdentityUser class to store additional profile information.
 
-* Developed using **.Net Core 9.0** and the **C#** language.
-* Management of all user and identity operations using **IdentityDbContext**.
-* **MVC architecture** and **Code-first** approach for many-to-many database relationships.
-* Handling of the **Authentication** process.
-* Session management using **HttpContext**.
+## 🚀 How to Set Up and Run?
 
-### Functional Features
+# This project requires the **.NET SDK** and an **SQL Server** database to run.
 
-* **Messaging System:** Features four different mailbox structures: Inbox, Outbox, Drafts, and Trash.
-* **Theme Support:** Visual support is provided by the **AdminLTE 3.0.4** theme integration.
+# 1. Clone the Repository:
+git clone https://github.com/abdullahhaktan/MyAcademyIdentity
+cd MyAcademyIdentity
+
+# 2. Prepare the Database:
+# * Update the Connection String (in the appsettings.json file) to match your local SQL Server settings.
+# * Apply Entity Framework Core migrations to create the database schema and automatically create the database:
+dotnet ef database update
+
+# * Note: This command will automatically create the database on the specified server if it doesn't already exist. You do not need to manually create the database beforehand.
+
+# 3. Start the Solution:
+# * Open the .sln (Solution) file with Visual Studio or VS Code.
+# * Build the project and start the application using the F5 key (Visual Studio) or the dotnet run command.
 
 ---
 ---
