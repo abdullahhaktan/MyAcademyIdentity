@@ -1,6 +1,3 @@
-urayı bashe  uygun formattda yaz
-
-
 # MyAcademyIdentity
 
 [TR]
@@ -38,21 +35,21 @@ Terminalde aşağıdaki komutları sırayla çalıştırabilirsiniz:
 bash
 
 # Projeyi klonla
-git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
+1. git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
 # Proje klasörüne gir
-cd MyAcademyIdentity
+2. cd MyAcademyIdentity
 
 # Bağımlılıkları yükle
-dotnet restore
+3. dotnet restore
 
 # appsettings.json içindeki ConnectionStrings'i kendi veritabanınıza göre güncelleyin
 
 # Veritabanı migration'larını uygula
-dotnet ef database update
+4. dotnet ef database update
 
 # Uygulamayı çalıştır
-dotnet run
+5. dotnet run
 
 ---
 ---
@@ -94,21 +91,21 @@ Run the following commands in your terminal:
 bash
 
 # Clone the project
-git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
+1. git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
 # Go into the project folder
-cd MyAcademyIdentity
+2. cd MyAcademyIdentity
 
 # Install dependencies
-dotnet restore
+3. dotnet restore
 
 # Update the ConnectionStrings in appsettings.json according to your database
 
 # Apply database migrations
-dotnet ef database update
+4. dotnet ef database update
 
 # Run the application
-dotnet run
+5. dotnet run
 
 
 ---
