@@ -32,23 +32,22 @@ Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş bi
 
 Terminalde aşağıdaki komutları sırayla çalıştırabilirsiniz:
 
-bash
 
-# Projeyi klonla
+** Projeyi klonla **
 1. git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
-# Proje klasörüne gir
+** Proje klasörüne gir **
 2. cd MyAcademyIdentity
 
-# Bağımlılıkları yükle
+** Bağımlılıkları yükle **
 3. dotnet restore
 
-# appsettings.json içindeki ConnectionStrings'i kendi veritabanınıza göre güncelleyin
+** appsettings.json içindeki ConnectionStrings'i kendi veritabanınıza göre güncelleyin **
 
-# Veritabanı migration'larını uygula
+** Veritabanı migration'larını uygula **
 4. dotnet ef database update
 
-# Uygulamayı çalıştır
+** Uygulamayı çalıştır **
 5. dotnet run
 
 ---
@@ -90,21 +89,21 @@ Run the following commands in your terminal:
 
 bash
 
-# Clone the project
+** Clone the project **
 1. git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
-# Go into the project folder
+** Go into the project folder **
 2. cd MyAcademyIdentity
 
-# Install dependencies
+** Install dependencies **
 3. dotnet restore
 
-# Update the ConnectionStrings in appsettings.json according to your database
+** Update the ConnectionStrings in appsettings.json according to your database **
 
-# Apply database migrations
+** Apply database migrations **
 4. dotnet ef database update
 
-# Run the application
+** Run the application **
 5. dotnet run
 
 
