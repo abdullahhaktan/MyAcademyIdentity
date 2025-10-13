@@ -1,3 +1,6 @@
+urayı bashe  uygun formattda yaz
+
+
 # MyAcademyIdentity
 
 [TR]
@@ -19,12 +22,12 @@ Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş bi
 
 ## ✨ Temel Özellikler
 
-- Kullanıcı Kaydı ve Girişi (Register/Login)  
-- Parola Sıfırlama ve E-posta Doğrulama  
-- Rol Tabanlı Yetkilendirme  
-- Admin Paneli: Kullanıcı ve rol yönetimi  
-- ASP.NET Core Identity ile güvenli parola saklama  
-- Entity Framework Core ile veritabanı yönetimi  
+* Kullanıcı Kaydı ve Girişi (Register/Login)  
+* Parola Sıfırlama ve E-posta Doğrulama  
+* Rol Tabanlı Yetkilendirme  
+* Admin Paneli: Kullanıcı ve rol yönetimi  
+* ASP.NET Core Identity ile güvenli parola saklama  
+* Entity Framework Core ile veritabanı yönetimi  
 
 ---
 
@@ -32,7 +35,8 @@ Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş bi
 
 Terminalde aşağıdaki komutları sırayla çalıştırabilirsiniz:
 
-```bash
+bash
+
 # Projeyi klonla
 git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
