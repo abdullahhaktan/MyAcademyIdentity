@@ -6,7 +6,7 @@
 
 [![C#](https://img.shields.io/badge/Language-C%23-blue.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 [![Framework](https://img.shields.io/badge/Framework-ASP.NET%20Core%20%7C%20MVC-602C78.svg)]()
-[![Database](https://img.shields.io/badge/Database-SQL%20Server-CC2927.svg)]()
+[![MSSQL](https://img.shields.io/badge/Database-MSSQL-green.svg)](https://learn.microsoft.com/en-us/sql/sql-server/)
 [![GitHub repo size](https://img.shields.io/github/repo-size/abdullahhaktan/MyAcademyIdentity)](https://github.com/abdullahhaktan/MyAcademyIdentity)
 
 ---
@@ -19,12 +19,12 @@ Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş bi
 
 ## ✨ Temel Özellikler
 
-* Kullanıcı Kaydı ve Girişi (Register/Login)  
-* Parola Sıfırlama ve E-posta Doğrulama  
-* Rol Tabanlı Yetkilendirme  
-* Admin Paneli: Kullanıcı ve rol yönetimi  
-* ASP.NET Core Identity ile güvenli parola saklama  
-* Entity Framework Core ile veritabanı yönetimi  
+- Kullanıcı Kaydı ve Girişi (Register/Login)  
+- Parola Sıfırlama ve E-posta Doğrulama  
+- Rol Tabanlı Yetkilendirme  
+- Admin Paneli: Kullanıcı ve rol yönetimi  
+- ASP.NET Core Identity ile güvenli parola saklama  
+- Entity Framework Core ile veritabanı yönetimi  
 
 ---
 
@@ -32,8 +32,7 @@ Bu proje, **ASP.NET Core Identity** altyapısını kullanarak geliştirilmiş bi
 
 Terminalde aşağıdaki komutları sırayla çalıştırabilirsiniz:
 
-bash
-
+```bash
 # Projeyi klonla
 git clone https://github.com/abdullahhaktan/MyAcademyIdentity.git
 
