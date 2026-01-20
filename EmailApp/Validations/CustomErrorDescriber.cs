@@ -2,7 +2,7 @@
 
 namespace EmailApp.Validations
 {
-    public class CustomErrorDescriber:IdentityErrorDescriber
+    public class CustomErrorDescriber : IdentityErrorDescriber
     {
         public override IdentityError PasswordRequiresDigit()
         {

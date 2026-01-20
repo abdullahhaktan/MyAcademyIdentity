@@ -2,7 +2,7 @@
 
 namespace EmailApp.Entities
 {
-    public class AppRole: IdentityRole<int>
+    public class AppRole : IdentityRole<int>
     {
     }
 }

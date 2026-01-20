@@ -8,6 +8,6 @@
         public string MessageType { get; set; }
         public string MessageCategory { get; set; }
         public bool isRead { get; set; }
-        public bool situation {  get; set; }
+        public bool situation { get; set; }
     }
 }

@@ -1,7 +1,7 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using EmailApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace EmailApp.Controllers;
 

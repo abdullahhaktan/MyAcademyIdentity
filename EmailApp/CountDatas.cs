@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace EmailApp
+﻿namespace EmailApp
 {
     public class CountDatas
     {

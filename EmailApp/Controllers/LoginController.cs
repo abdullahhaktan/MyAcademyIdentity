@@ -10,7 +10,7 @@ namespace EmailApp.Controllers
 {
     [AllowAnonymous]
     public class LoginController(UserManager<AppUser> _userManager, SignInManager<AppUser>
-        _signInManager , AppDbContext _context) : Controller
+        _signInManager, AppDbContext _context) : Controller
     {
 
         public async Task getCountsAsync()
@@ -47,13 +47,13 @@ Include(m => m.Receiver).Where(m => m.situation == true && m.Receiver.Id == user
         public async Task<IActionResult> Index(LoginViewModel model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if(user is null)
+            if (user is null)
             {
                 ModelState.AddModelError("", "Bu email sistemde kayıtlı değil");
                 return View(model);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user, model.Password,false,
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, false,
                 false);
 
             if (!result.Succeeded)
@@ -75,12 +75,12 @@ Include(m => m.Receiver).Where(m => m.situation == true && m.Receiver.Id == user
             .Take(4)
             .ToListAsync();
 
-            if(lastFourMessage is not null)
+            if (lastFourMessage is not null)
             {
                 HttpContext.Session.SetString("durum", "var");
             }
 
-            return RedirectToAction("Index","Message");
+            return RedirectToAction("Index", "Message");
         }
 
         public async Task<IActionResult> LogOut()

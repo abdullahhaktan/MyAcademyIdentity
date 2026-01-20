@@ -5,9 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Plugins;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Message = EmailApp.Entities.Message;
 
 namespace EmailApp.Controllers
@@ -48,7 +45,7 @@ Include(m => m.Receiver).Where(m => m.situation == true && m.Receiver.Id == user
             getCountsAsync();
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             var messages = _context.Messages.Include(m => m.Sender)
-                .Where(m => m.ReceiverId == user.Id && m.situation == true && m.MessageType=="normal").ToList();
+                .Where(m => m.ReceiverId == user.Id && m.situation == true && m.MessageType == "normal").ToList();
 
             return View(messages);
         }
@@ -104,7 +101,7 @@ Include(m => m.Receiver).Where(m => m.situation == true && m.Receiver.Id == user
                 SenderId = sender.Id,
                 SendDate = DateTime.Now,
                 MessageCategory = model.MessageCategory,
-                situation=true
+                situation = true
             };
 
             message.MessageType = "normal";
@@ -227,7 +224,7 @@ Include(m => m.Receiver).Where(m => m.situation == true && m.Receiver.Id == user
 
         public async Task<IActionResult> ChangeToImportant(int id)
         {
-            var message = _context.Messages.Where(m=>m.MessageId == id).FirstOrDefault();
+            var message = _context.Messages.Where(m => m.MessageId == id).FirstOrDefault();
             message.MessageCategory = "Önemli";
             _context.Messages.Update(message);
             _context.SaveChanges();

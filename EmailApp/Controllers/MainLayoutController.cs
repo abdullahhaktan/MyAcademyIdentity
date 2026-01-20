@@ -2,8 +2,6 @@
 using EmailApp.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 namespace EmailApp.Controllers
 {
